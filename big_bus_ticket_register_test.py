@@ -40,7 +40,12 @@ class RegisterTest(unittest.TestCase):
         message = self.register._refund('5')
         self.assertEqual(message, "Ticket ID# 5 returned. \n Total refund: 12")    
 
-    def test_8_today_input(self):
+    def test_8_refund_input_2(self):
+        self.register._buy(1, 4, 21, 2018, 'red')
+        message = self.register._refund('r')
+        self.assertEqual(message, "Invalid input")           
+
+    def test_9_today_input(self):
         message = self.register._today('orange')
         self.assertEqual(message, "Entered line not valid")
 
