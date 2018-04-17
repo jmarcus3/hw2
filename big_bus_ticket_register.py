@@ -120,7 +120,7 @@ class AppShell(cmd.Cmd):
      print(self._addLine(line, buses))
 
     def _addLine(self, line, buses):
-     return(self.seller.addLine(line, buses)) 
+      return(self.seller.addLine(line, int(buses))) 
 
 
 if __name__ == '__main__':
