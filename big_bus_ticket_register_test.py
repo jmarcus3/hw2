@@ -11,4 +11,9 @@ class RegisterTest(unittest.TestCase):
     def test_buy(self):
         message = self.register._buy(1, 4, 26, 2018, 'red')
         self.assertEqual(message, "Total price: 10")
+
+    def test_buy_input(self):
+        message = self.register._buy('f', 'k', 'z', 'x')
+        self.assertEqual(message, "Invalid input")
+        
 unittest.main()
