@@ -37,7 +37,7 @@ class LinLog:
 class Seller:
     _id_counter = 0
     _ticket_log = {}
-    _lines_long = {"red" : LinLog(), "green" : LinLog(), "blue" : LinLog()}
+    _lines_log = {"red" : LinLog(), "green" : LinLog(), "blue" : LinLog()}
     _maxes = {"red" : 5*89, "green" : 4*89, "blue" : 2*89}
     WEEKDAY_PRICE = 10 #base price for weekdays (default values)
     WEEKEND_PRICE = 12 #weekend surcharge (default values)
@@ -46,7 +46,7 @@ class Seller:
         self._id_counter += 1
         tick = Ticket(self._id_counter, today, date, line, price)
         self._ticket_log[tick.ticket_id] = tick
-        self._lines_long[line].add(date, today)        
+        self._lines_log[line].add(date, today)        
         print(f"Ticket ID# {tick.ticket_id} sold successfully")
 
     def sell(self, count, date, line):
@@ -63,7 +63,7 @@ class Seller:
         if count > 4:
             return "Invalid number of tickets"
 
-        if self._lines_long[line].getCount(date) + count > self._maxes[line]:
+        if self._lines_log[line].getCount(date) + count > self._maxes[line]:
             return "Not enough tickets left on this line"
 
         if count == 4:
@@ -81,7 +81,7 @@ class Seller:
         if ticket_id in self._ticket_log:            
             tick = self._ticket_log[ticket_id]
             if (tick.ride_date - datetime.date.today()).days > 0: 
-                self._lines_long[tick.line].sub(tick.ride_date, tick.purchase_date)
+                self._lines_log[tick.line].sub(tick.ride_date, tick.purchase_date)
                 refund = tick.price
                 del self._ticket_log[ticket_id]
                 return f"Ticket ID# {ticket_id} returned. \n Total refund: {refund}"
@@ -91,11 +91,11 @@ class Seller:
             return "No record of purchase"
 
     def dateLog(self, line, purchase_date):
-        sold = self._lines_long[line].getCount(purchase_date)
+        sold = self._lines_log[line].getCount(purchase_date)
         return sold
     
     def log(self, purchase_date):
         report = {}
-        for line in self._lines_long:
+        for line in self._lines_log:
             report[line] = self.dateLog(line, purchase_date)
         return report
