@@ -47,7 +47,10 @@ class AppShell(cmd.Cmd):
       print(self._refund(ticket_id))
     
     def _refund(self, ticket_id):
-      ticket_id = int(ticket_id)
+      try:
+        ticket_id = int(ticket_id)
+      except:
+        return "Invalid input"
       return self.seller.refund(ticket_id)
 
     def do_today(self, args):
