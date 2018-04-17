@@ -7,10 +7,12 @@ import big_bus_ticket_register_classes
 
 
 class AppShell(cmd.Cmd):
-    intro = "\nWelcome to the My App!\nType `help` or `?` to list commands.\n"
-    prompt = '> '
-    event = None
-    seller = big_bus_ticket_register_classes.Seller()
+    def __init__(self):
+      super().__init__()
+      self.intro = "\nWelcome to the My App!\nType `help` or `?` to list commands.\n"
+      self.prompt = '> '
+      self.event = None
+      self.seller = big_bus_ticket_register_classes.Seller()
 
     def do_quit(self, arg):
       """Quit"""
