@@ -69,9 +69,9 @@ class AppShell(cmd.Cmd):
     def do_report(self, args):
       """Generate a report for the sales on a specified date for all lines"""
       print("Enter date for report:")
-      month = int(input("   Month (1-12): "))
-      day = int(input("   Day (1-31): "))
-      year = int(input("   Year (xxxx): "))
+      month = input("   Month (1-12): ")
+      day = input("   Day (1-31): ")
+      year = input("   Year (xxxx): ")
       self._report(month, day, year)
 
     def _report(self, month, day, year):
