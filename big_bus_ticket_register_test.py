@@ -78,6 +78,11 @@ class RegisterTest(unittest.TestCase):
         register._addLine('orange', 5) #line name and number of buses on line
         self.assertTrue(type(register.seller._lines_log['orange']) is bbtrc.LinLog)
 
+    def test_14_addLine2(self):
+        register = bbtr.AppShell()
+        register._addLine('orange', 5)
+        self.assertTrue(register.seller._maxes['orange'] == 5*89)
+
 
     
 
