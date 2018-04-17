@@ -49,6 +49,10 @@ class RegisterTest(unittest.TestCase):
         message = self.register._today('orange')
         self.assertEqual(message, "Entered line not valid")
 
+    def test_10_report_input(self):
+        message = self.register._report('a', 'j', 'c')
+        self.assertEqual(message, "Invalid input")
+
     
 
 
