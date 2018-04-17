@@ -35,5 +35,9 @@ class RegisterTest(unittest.TestCase):
         message = self.register._refund(4)
         self.assertEqual(message, "Ticket ID# 4 returned. \n Total refund: 12")
 
+    def test_today_input(self):
+        message = self.register._today('orange')
+        self.assertEqual(message, "Entered line not valid")
+
 
 unittest.main()
