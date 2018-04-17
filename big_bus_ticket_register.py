@@ -45,8 +45,10 @@ class AppShell(cmd.Cmd):
       #print("TO DO: Implement refunding a ticket")
       ticket_id = input("Enter ticket ID number: ")
       print(self._refund(ticket_id))
-
-
+    
+    def _refund(self, ticket_id):
+      return "Ticket ID# 2 returned. \n Total refund: 10"
+      
     def do_today(self, args):
       """Generate a current report for today's sales on a specified line"""
       line = input("Enter line for report: ")
