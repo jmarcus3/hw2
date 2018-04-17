@@ -75,7 +75,11 @@ class AppShell(cmd.Cmd):
       self._report(month, day, year)
 
     def _report(self, month, day, year):
-      purchase_date = datetime.date(int(year), int(month), int(day))
+      try:
+        purchase_date = datetime.date(int(year), int(month), int(day))
+      except:
+        print("Invalid input")
+        return "Invalid input" #for testing
       report = self.seller.log(purchase_date)
       total = 0
       print(f"--REPORT FOR {purchase_date}--")
