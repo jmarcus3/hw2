@@ -25,4 +25,10 @@ class RegisterTest(unittest.TestCase):
         message = self.register._refund(2)
         self.assertEqual(message, "Ticket ID# 2 returned. \n Total refund: 10")
 
+    def test_refund_refactor_2(self):
+        self.register._buy(1, 4, 26, 2018, 'red')
+        message = self.register._refund(3)
+        self.assertEqual(message, "Ticket ID# 3 returned. \n Total refund: 10")
+
+
 unittest.main()
