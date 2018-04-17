@@ -75,7 +75,7 @@ class AppShell(cmd.Cmd):
       self._report(month, day, year)
 
     def _report(self, month, day, year):
-      purchase_date = datetime.date(year, month, day)
+      purchase_date = datetime.date(int(year), int(month), int(day))
       report = self.seller.log(purchase_date)
       total = 0
       print(f"--REPORT FOR {purchase_date}--")
