@@ -72,6 +72,9 @@ class AppShell(cmd.Cmd):
       month = int(input("   Month (1-12): "))
       day = int(input("   Day (1-31): "))
       year = int(input("   Year (xxxx): "))
+      self._report(month, day, year)
+
+    def _report(self, month, day, year):
       purchase_date = datetime.date(year, month, day)
       report = self.seller.log(purchase_date)
       total = 0
@@ -81,6 +84,7 @@ class AppShell(cmd.Cmd):
         total += x
         print(f"  {entry}: {x}")
       print(f"  Total: {total}")
+
 
     def do_setPrice(self, args):
       """Set weekday and weekend prices"""
