@@ -54,6 +54,9 @@ class Seller:
         sale = self.WEEKDAY_PRICE
         total = 0
 
+        if type(count) is not int:
+            return "Number of tickets must be an integer"
+
         if date.weekday() >= 4: #if ticket date is fri-sun, add surcharge 
             sale = self.WEEKEND_PRICE        
 
