@@ -28,7 +28,7 @@ class LinLog:
         self._ride_date_log[ride_date] -= 1
         self._purchase_date_log[purchase_date] -= 1
 
-    def getCnt(self, purchase_date):
+    def getCount(self, purchase_date):
         if purchase_date in self._purchase_date_log:
             return self._purchase_date_log[purchase_date]
         else:
@@ -63,7 +63,7 @@ class Seller:
         if count > 4:
             return "Invalid number of tickets"
 
-        if self._lines_long[line].getCnt(date) + count > self._maxes[line]:
+        if self._lines_long[line].getCount(date) + count > self._maxes[line]:
             return "Not enough tickets left on this line"
 
         if count == 4:
@@ -91,7 +91,7 @@ class Seller:
             return "No record of purchase"
 
     def dateLog(self, line, purchase_date):
-        sold = self._lines_long[line].getCnt(purchase_date)
+        sold = self._lines_long[line].getCount(purchase_date)
         return sold
     
     def log(self, purchase_date):
