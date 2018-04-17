@@ -56,7 +56,11 @@ class AppShell(cmd.Cmd):
 
     def _today(self, line):
       purchase_date = datetime.date.today()
-      return f"--REPORT FOR TODAY--\nLINE: {line}\nTIME STAMP: {datetime.datetime.today()}\nTICKETS SOLD: {self.seller.dateLog(line, purchase_date)}"
+      try:
+        return f"--REPORT FOR TODAY--\nLINE: {line}\nTIME STAMP: {datetime.datetime.today()}\nTICKETS SOLD: {self.seller.dateLog(line, purchase_date)}"
+      except:
+        return"Entered line not valid"
+
 
     def do_report(self, args):
       """Generate a report for the sales on a specified date for all lines"""
