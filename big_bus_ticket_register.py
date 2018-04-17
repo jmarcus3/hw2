@@ -113,11 +113,11 @@ class AppShell(cmd.Cmd):
         self.seller.WEEKEND_PRICE = weekend
         print("Prices updated.")  
 
-    #def do_addLine(self, args):
-    #  """Add a new bus line"""
-    #  line = input("Enter name of new line: ")
-    #  buses = input("Enter number of buses on line: ")
-    #  print(self._addLine(line, buses))
+    def do_addLine(self, args):
+     """Add a new bus line"""
+     line = input("Enter name of new line: ")
+     buses = input("Enter number of buses on line: ")
+     print(self._addLine(line, buses))
 
     def _addLine(self, line, buses):
      return(self.seller.addLine(line, buses)) 
