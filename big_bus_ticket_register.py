@@ -98,12 +98,12 @@ class AppShell(cmd.Cmd):
 
 
     def _setPrice(self, weekday, weekend):
-      #try:
-      weekday = int(weekday)
-      weekend = int(weekend)
-      #except:
-      #  print("Invalid input")
-      #  return("Invalid input")
+      try:
+        weekday = int(weekday)
+        weekend = int(weekend)
+      except:
+        print("Invalid input")
+        return("Invalid input")
       if weekday >= weekend:
         print("Weekend price must be greater than weekday price. Prices not updated.")
       else:
