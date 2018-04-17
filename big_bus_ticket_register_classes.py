@@ -103,4 +103,4 @@ class Seller:
 
     def addLine(self, line, buses):
         self._lines_log[line] = LinLog()
-        self._maxes[line] = 5*89 
+        self._maxes[line] = buses * 89 
