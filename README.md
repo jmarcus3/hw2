@@ -16,3 +16,6 @@ input simply take the user input and pass it along without doing anything else.
 This way, I can test the internal methods in the test suite, and leave the methods
 that the user is interacting with to spot checking since the code is so simple. In
 this way, the test suite is simulating the way the user facing methods act.
+
+Note that part of my way through the above, I needed to refactor some of the tests since
+some of my tests were reliant on others and the order of their execution. 
