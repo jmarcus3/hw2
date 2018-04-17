@@ -98,6 +98,11 @@ class RegisterTest(unittest.TestCase):
         message = register._addLine('pink', 'j')
         self.assertEquals(message, "Number of buses must be an integer") 
 
+    def test_18_addLine_input2(self):
+        register = bbtr.AppShell()
+        message = register._addLine("green", 1)
+        self.assertEquals(message, "Bus line already exists, did you mean changeLine?")      
+
 
     
 
