@@ -75,7 +75,7 @@ class RegisterTest(unittest.TestCase):
 
     def test_13_addLine(self):
         register = bbtr.AppShell()
-        register._add_line('orange', 5) #line name and number of buses on line
+        register._addLine('orange', 5) #line name and number of buses on line
         self.assertTrue(type(register.seller._lines_log['orange']) is bbtrc.LinLog)
 
 

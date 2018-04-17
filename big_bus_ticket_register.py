@@ -113,8 +113,8 @@ class AppShell(cmd.Cmd):
         self.seller.WEEKEND_PRICE = weekend
         print("Prices updated.")  
 
-    #def _addLine(self, line, buses):
-    #  return(self.seller.addLine(line, buses)) 
+    def _addLine(self, line, buses):
+     return(self.seller.addLine(line, buses)) 
 
 
 if __name__ == '__main__':

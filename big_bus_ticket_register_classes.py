@@ -35,12 +35,13 @@ class LinLog:
             return 0
 
 class Seller:
-    _id_counter = 0
-    _ticket_log = {}
-    _lines_log = {"red" : LinLog(), "green" : LinLog(), "blue" : LinLog()}
-    _maxes = {"red" : 5*89, "green" : 4*89, "blue" : 2*89}
-    WEEKDAY_PRICE = 10 #base price for weekdays (default values)
-    WEEKEND_PRICE = 12 #weekend surcharge (default values)
+    def __init__(self):
+        self._id_counter = 0
+        self._ticket_log = {}
+        self._lines_log = {"red" : LinLog(), "green" : LinLog(), "blue" : LinLog()}
+        self._maxes = {"red" : 5*89, "green" : 4*89, "blue" : 2*89}
+        self.WEEKDAY_PRICE = 10 #base price for weekdays (default values)
+        self.WEEKEND_PRICE = 12 #weekend surcharge (default values)
 
     def _sell(self, today, date, line, price):
         self._id_counter += 1
@@ -100,5 +101,5 @@ class Seller:
             report[line] = self.dateLog(line, purchase_date)
         return report
 
-    # def addLine(self, line, buses):
-    #     self._lines_log[line] = 
+    def addLine(self, line, buses):
+        self._lines_log[line] = LinLog() 
