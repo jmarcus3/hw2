@@ -86,7 +86,13 @@ class RegisterTest(unittest.TestCase):
     def test_15_addLine3(self):
         register = bbtr.AppShell()
         register._addLine('orange', 4)
-        self.assertTrue(register.seller._maxes['orange'] == 4*89)        
+        self.assertTrue(register.seller._maxes['orange'] == 4*89) 
+
+    def test_16_addLine4(self):
+        register = bbtr.AppShell()
+        message = register._addLine('orange', 4)
+        self.assertEquals(message, "New line entered successfully")
+ 
 
 
     
