@@ -28,12 +28,16 @@ class AppShell(cmd.Cmd):
       print(self._buy(count, month, day, year, line))
 
     def _buy(self, count, month, day, year, line):
-       count = int(count)
-       month = int(month)
-       day = int(day)
-       year = int(year)
-       date = datetime.date(year, month, day)
-       return self.seller.sell(count, date, line)
+        try:
+            count = int(count)
+            month = int(month)
+            day = int(day)
+            year = int(year)
+            date = datetime.date(year, month, day)
+        except:
+            return "Invalid input"
+
+        return self.seller.sell(count, date, line)
     
 
     def do_refund(self, args):
