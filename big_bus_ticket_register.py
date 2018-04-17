@@ -79,7 +79,7 @@ class AppShell(cmd.Cmd):
         purchase_date = datetime.date(int(year), int(month), int(day))
       except:
         print("Invalid input")
-        return "Invalid input" #for testing
+        return "Invalid input" #for testing and to hop out of the method
       report = self.seller.log(purchase_date)
       total = 0
       print(f"--REPORT FOR {purchase_date}--")
@@ -92,14 +92,21 @@ class AppShell(cmd.Cmd):
 
     def do_setPrice(self, args):
       """Set weekday and weekend prices"""
-      weekday = int(input("Enter weekday price: "))
-      weekend = int(input("Enter weekend price: "))
+      weekday = input("Enter weekday price: ")
+      weekend = input("Enter weekend price: ")
+      self._setPrice(weekday, weekend)
+
+
+    def _setPrice(self, weekday, weekend):
+      weekday = int(weekday)
+      weekend = int(weekend)
       if weekday >= weekend:
         print("Weekend price must be greater than weekday price. Prices not updated.")
       else:
         self.seller.WEEKDAY_PRICE = weekday
         self.seller.WEEKEND_PRICE = weekend
-        print("Prices updated.")
+        print("Prices updated.")   
+
 
 if __name__ == '__main__':
     AppShell().cmdloop()
