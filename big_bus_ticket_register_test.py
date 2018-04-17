@@ -54,7 +54,7 @@ class RegisterTest(unittest.TestCase):
         self.assertEqual(message, "Invalid input")
 
     def test_11_setPrice_input(self):
-        message = self.register._setPrice("j", 'b', 'x')
+        message = self.register._setPrice("j", 'b')
         self.assertEqual(message, "Invalid input")
 
     
