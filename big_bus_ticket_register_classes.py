@@ -99,3 +99,6 @@ class Seller:
         for line in self._lines_log:
             report[line] = self.dateLog(line, purchase_date)
         return report
+
+    # def addLine(self, line, buses):
+    #     self._lines_log[line] = 

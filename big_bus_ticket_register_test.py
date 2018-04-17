@@ -73,10 +73,10 @@ class RegisterTest(unittest.TestCase):
         prices = [register.seller.WEEKDAY_PRICE, register.seller.WEEKEND_PRICE]
         self.assertEqual(prices, [9, 14])
 
-    def test_13_add_line(self):
+    def test_13_addLine(self):
         register = bbtr.AppShell()
         register._add_line('orange', 5) #line name and number of buses on line
-        self.assertTrue('orange' in register.seller._lines_log)
+        self.assertTrue(type(register.seller._lines_log['orange']) is bbtrc.LinLog)
 
 
     
