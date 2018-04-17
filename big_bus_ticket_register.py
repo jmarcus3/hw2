@@ -120,7 +120,10 @@ class AppShell(cmd.Cmd):
      print(self._addLine(line, buses))
 
     def _addLine(self, line, buses):
-      return(self.seller.addLine(line, int(buses))) 
+      try:
+        return(self.seller.addLine(line, int(buses))) 
+      except:
+        return "Number of buses must be an integer" 
 
 
 if __name__ == '__main__':
