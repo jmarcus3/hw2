@@ -20,4 +20,9 @@ class RegisterTest(unittest.TestCase):
         message = self.register._buy(1, 15, 72, 2018, 'red')
         self.assertEqual(message, "Invalid input")
 
+    def test_refund_refactor(self):
+        self.register._buy(1, 4, 26, 2018, 'red')
+        message = self._refund(2)
+        self.assertEqual(message, "Ticket ID# 2 returned. \n Total refund: 10")
+
 unittest.main()
