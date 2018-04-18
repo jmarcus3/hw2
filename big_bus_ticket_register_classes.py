@@ -107,3 +107,6 @@ class Seller:
         self._lines_log[line] = LinLog()
         self._maxes[line] = buses * 89
         return "New line entered successfully" 
+
+    def changeLine(self, line, buses):
+        self._maxes[line] = buses * 89
