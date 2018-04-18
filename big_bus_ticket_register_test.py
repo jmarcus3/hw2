@@ -108,6 +108,11 @@ class RegisterTest(unittest.TestCase):
         register._changeLine("red", 9)
         self.assertTrue(register.seller._maxes['red'] == 9*89)
 
+    def test_20_changeLine_input(self):
+        register = bbtr.AppShell()
+        message = register._changeLine("orange", 5)
+        self.assertTrue(message, "Bus line doesn't exist, did you mean addLine?")
+
     
 
 unittest.main()
