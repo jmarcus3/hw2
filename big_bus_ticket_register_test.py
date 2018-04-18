@@ -111,12 +111,18 @@ class RegisterTest(unittest.TestCase):
     def test_20_changeLine_input(self):
         register = bbtr.AppShell()
         message = register._changeLine("orange", 5)
-        self.assertTrue(message, "Bus line doesn't exist, did you mean addLine?")
+        self.assertEquals(message, "Bus line doesn't exist, did you mean addLine?")
 
-    def test_21_changeLine_input(self):        
+    def test_21_changeLine_input2(self):        
         register = bbtr.AppShell()
         message = register._changeLine("red", 5)
-        self.assertTrue(message, "Line changed successfully")
+        self.assertEquals(message, "Line changed successfully")
+
+    def test_22_changeLine_input3(self):
+        register = bbtr.AppShell()
+        message = register._changeLine("red", 'j')
+        self.assertEquals(message, "Number of buses must be an integer")
+
 
     
 
