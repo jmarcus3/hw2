@@ -113,6 +113,11 @@ class RegisterTest(unittest.TestCase):
         message = register._changeLine("orange", 5)
         self.assertTrue(message, "Bus line doesn't exist, did you mean addLine?")
 
+    def test_21_changeLine_input(self):        
+        register = bbtr.AppShell()
+        message = register._changeLine("red", 5)
+        self.assertTrue(message, "Line changed successfully")
+
     
 
 unittest.main()
