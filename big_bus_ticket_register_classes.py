@@ -102,11 +102,13 @@ class Seller:
         return report
 
     def addLine(self, line, buses):
-        if line in self. _lines_log:
+        if line in self._lines_log:
             return "Bus line already exists, did you mean changeLine?"
         self._lines_log[line] = LinLog()
         self._maxes[line] = buses * 89
         return "New line entered successfully" 
 
     def changeLine(self, line, buses):
+        if line not in self._lines_log:
+            return "Bus line doesn't exist, did you mean addLine?"
         self._maxes[line] = buses * 89
