@@ -125,9 +125,8 @@ class RegisterTest(unittest.TestCase):
 
     def test_23_changeCapacity(self):
         register = bbtr.AppShell()
-        register.changeCapacity(92)
+        register._changeCapacity(92)
         self.assertTrue(register.seller._maxes["red"] == 5*92 and register.seller._maxes["green"] == 4*92 and register.seller._maxes["blue"] == 2*92)
 
-    
 
 unittest.main()
