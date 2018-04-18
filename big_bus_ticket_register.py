@@ -125,6 +125,12 @@ class AppShell(cmd.Cmd):
       except:
         return "Number of buses must be an integer"
 
+    def do_changeLine(self, args):
+     """Change number of buses on existing bus line"""
+     line = input("Enter name of line: ")
+     buses = input("Enter new number of buses on line: ")
+     print(self._changeLine(line, buses))
+
     def _changeLine(self, line, buses):
       try:
         return self.seller.changeLine(line, int(buses))

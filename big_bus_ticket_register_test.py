@@ -123,6 +123,7 @@ class RegisterTest(unittest.TestCase):
         message = register._changeLine("red", 'j')
         self.assertEquals(message, "Number of buses must be an integer")
 
+    
 
     
 
