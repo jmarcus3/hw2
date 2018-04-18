@@ -112,3 +112,4 @@ class Seller:
         if line not in self._lines_log:
             return "Bus line doesn't exist, did you mean addLine?"
         self._maxes[line] = buses * 89
+        return "Line changed successfully"
