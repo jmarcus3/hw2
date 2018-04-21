@@ -148,10 +148,10 @@ class RegisterTest(unittest.TestCase):
         message = register._changeLine("red", 'j')
         self.assertEquals(message, "Number of buses must be an integer")
 
-    # def test_23_changeCapacity(self):
-    #     register = bbtr.AppShell()
-    #     register._changeCapacity(92)
-    #     self.assertTrue(register.seller._maxes["red"] == 5*92 and register.seller._maxes["green"] == 4*92 and register.seller._maxes["blue"] == 2*92)
+    def test_23_changeCapacity(self):
+        register = bbtr.AppShell()
+        register._changeCapacity(92)
+        self.assertTrue(register.seller._maxes["red"] == 5*92 and register.seller._maxes["green"] == 4*92 and register.seller._maxes["blue"] == 2*92)
 
 
 unittest.main()
