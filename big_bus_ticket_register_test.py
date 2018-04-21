@@ -7,9 +7,29 @@ import datetime
 class RegisterTest(unittest.TestCase):
     #seller = bbtrc.Seller()
 
+    def generate_valid_weekend(self):
+        the_date = datetime.date.today()
+        if the_date.weekday() >= 4:
+            the_date += datetime.timedelta(days = 7)
+        else:
+            the_date += datetime.timedelta(days = 4 - the_date.weekday())
+
+        return the_date
+
+    def generate_valid_weekday(self):
+        the_date = datetime.date.today()
+        if the_date.weekday() >= 4:
+            the_date += datetime.timedelta(days = 3)
+        else:
+            the_date += datetime.timedelta(days = 7)
+
+        return the_date
+
+
     def test_1_buy(self):
         register = bbtr.AppShell()
-        message = register._buy(1, 4, 26, 2018, 'red')
+        ride_date = self.generate_valid_weekday()
+        message = register._buy(1, ride_date.month, ride_date.day, ride_date.year, 'red')
         self.assertEqual(message, "Total price: 10")
 
     def test_2_buy_input(self):
@@ -24,31 +44,36 @@ class RegisterTest(unittest.TestCase):
 
     def test_4_refund_refactor(self):
         register = bbtr.AppShell()        
-        register._buy(1, 4, 26, 2018, 'red')
+        ride_date = self.generate_valid_weekday()
+        register._buy(1, ride_date.month, ride_date.day, ride_date.year, 'red')
         message = register._refund(1)
         self.assertEqual(message, "Ticket ID# 1 returned. \n Total refund: 10")
 
     def test_5_refund_refactor_2(self):
         register = bbtr.AppShell()               
-        register._buy(1, 4, 26, 2018, 'red')
+        ride_date = self.generate_valid_weekday()
+        register._buy(1, ride_date.month, ride_date.day, ride_date.year, 'red')
         message = register._refund(1)
         self.assertEqual(message, "Ticket ID# 1 returned. \n Total refund: 10")
 
     def test_6_refund_refactor_3(self):
         register = bbtr.AppShell()
-        register._buy(1, 4, 21, 2018, 'red') #refund should be weekend price now
+        ride_date = self.generate_valid_weekend()
+        register._buy(1, ride_date.month, ride_date.day, ride_date.year, 'red') #refund should be weekend price now
         message = register._refund(1)
         self.assertEqual(message, "Ticket ID# 1 returned. \n Total refund: 12")
 
     def test_7_refund_input(self):
         register = bbtr.AppShell()
-        register._buy(1, 4, 21, 2018, 'red')
+        ride_date = self.generate_valid_weekend()
+        register._buy(1, ride_date.month, ride_date.day, ride_date.year, 'red')
         message = register._refund('1')
         self.assertEqual(message, "Ticket ID# 1 returned. \n Total refund: 12")    
 
     def test_8_refund_input_2(self):
         register = bbtr.AppShell()
-        register._buy(1, 4, 21, 2018, 'red')
+        ride_date = self.generate_valid_weekend()
+        register._buy(1, ride_date.month, ride_date.day, ride_date.year, 'red')
         message = register._refund('r')
         self.assertEqual(message, "Invalid input")           
 
@@ -123,10 +148,10 @@ class RegisterTest(unittest.TestCase):
         message = register._changeLine("red", 'j')
         self.assertEquals(message, "Number of buses must be an integer")
 
-    def test_23_changeCapacity(self):
-        register = bbtr.AppShell()
-        register._changeCapacity(92)
-        self.assertTrue(register.seller._maxes["red"] == 5*92 and register.seller._maxes["green"] == 4*92 and register.seller._maxes["blue"] == 2*92)
+    # def test_23_changeCapacity(self):
+    #     register = bbtr.AppShell()
+    #     register._changeCapacity(92)
+    #     self.assertTrue(register.seller._maxes["red"] == 5*92 and register.seller._maxes["green"] == 4*92 and register.seller._maxes["blue"] == 2*92)
 
 
 unittest.main()

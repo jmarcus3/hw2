@@ -38,10 +38,12 @@ class Seller:
     def __init__(self):
         self._id_counter = 0
         self._ticket_log = {}
+        self._capacity = 89        
         self._lines_log = {"red" : LinLog(), "green" : LinLog(), "blue" : LinLog()}
-        self._maxes = {"red" : 5*89, "green" : 4*89, "blue" : 2*89}
+        self._maxes = {"red" : 5*self._capacity, "green" : 4*self._capacity, "blue" : 2*self._capacity}
         self.WEEKDAY_PRICE = 10 #base price for weekdays (default values)
         self.WEEKEND_PRICE = 12 #weekend surcharge (default values)
+
 
     def _sell(self, today, date, line, price):
         self._id_counter += 1
@@ -113,4 +115,7 @@ class Seller:
             return "Bus line doesn't exist, did you mean addLine?"
         self._maxes[line] = buses * 89
         return "Line changed successfully"
+
+    def changeCapacity(self, capacity):
+        self._capacity = capacity
 
