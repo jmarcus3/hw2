@@ -167,6 +167,11 @@ class RegisterTest(unittest.TestCase):
         register = bbtr.AppShell()
         message = register._changeCapacity('92')
         self.assertTrue(register.seller._maxes["red"] == 5*92 and register.seller._maxes["green"] == 4*92 and register.seller._maxes["blue"] == 2*92)        
-        self.assertEquals(message, "Capacity changed successfully")        
+        self.assertEquals(message, "Capacity changed successfully")       
+
+    def test_27_changeCapacity_With_Invalid_Input(self):
+        register = bbtr.AppShell()
+        message = register._changeCapacity('J')
+        self.assertEquals(message, "Capacity must be a positive integer")            
 
 unittest.main()
