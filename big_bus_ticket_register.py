@@ -139,6 +139,7 @@ class AppShell(cmd.Cmd):
 
     def _changeCapacity(self, capacity):
       self.seller.changeCapacity(capacity)
+      return "Capacity changed successfully"
 
 if __name__ == '__main__':
     AppShell().cmdloop()

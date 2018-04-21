@@ -153,5 +153,14 @@ class RegisterTest(unittest.TestCase):
         register._changeCapacity(92)
         self.assertTrue(register.seller._maxes["red"] == 5*92 and register.seller._maxes["green"] == 4*92 and register.seller._maxes["blue"] == 2*92)
 
+    def test_24_changeCapacity_Message_Success(self):
+        register = bbtr.AppShell()
+        message = register._changeCapacity(95)
+        self.assertEquals(message, "Capacity changed successfully")
+
+    def test_25_changeCapacity3(self):
+        register = bbtr.AppShell()
+        message = register._changeCapacity(0)
+        self.assertEquals(message, "Capacity must be greater than 0!")
 
 unittest.main()

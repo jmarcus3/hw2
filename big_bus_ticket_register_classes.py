@@ -120,4 +120,5 @@ class Seller:
         for line in self._maxes:
             self._maxes[line] = self._maxes[line]/self._capacity * new_capacity
         self._capacity = new_capacity
+        
 
