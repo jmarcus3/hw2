@@ -137,6 +137,11 @@ class AppShell(cmd.Cmd):
       except:
         return "Number of buses must be an integer"
 
+    def do_changeCapacity(self, args):
+      """Change seating capacity of buses"""
+      new_capacity = input("Enter seating capacity of a single bus: ")
+      print(self._changeCapacity(new_capacity))
+
     def _changeCapacity(self, capacity):
       try:
         return self.seller.changeCapacity(capacity)
