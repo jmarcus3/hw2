@@ -172,6 +172,6 @@ class RegisterTest(unittest.TestCase):
     def test_27_changeCapacity_With_Invalid_Input(self):
         register = bbtr.AppShell()
         message = register._changeCapacity('J')
-        self.assertEquals(message, "Capacity must be a positive integer")            
+        self.assertEquals(message, "Capacity must be an integer")            
 
 unittest.main()

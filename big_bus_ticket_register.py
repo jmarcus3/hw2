@@ -138,7 +138,10 @@ class AppShell(cmd.Cmd):
         return "Number of buses must be an integer"
 
     def _changeCapacity(self, capacity):
-      return self.seller.changeCapacity(capacity)
+      try:
+        return self.seller.changeCapacity(capacity)
+      except:
+        return "Capacity must be an integer"
 
 if __name__ == '__main__':
     AppShell().cmdloop()
