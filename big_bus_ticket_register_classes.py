@@ -117,7 +117,7 @@ class Seller:
         return "Line changed successfully"
 
     def changeCapacity(self, new_capacity):
-        
+        new_capacity = int(new_capacity)        
         if new_capacity < 1:
             return "Capacity must be greater than 0"
         for line in self._maxes:
