@@ -116,6 +116,8 @@ class Seller:
         self._maxes[line] = buses * 89
         return "Line changed successfully"
 
-    def changeCapacity(self, capacity):
-        self._capacity = capacity
+    def changeCapacity(self, new_capacity):
+        for line in self._maxes:
+            self._maxes[line] = self._maxes[line]/self._capacity * new_capacity
+        self._capacity = new_capacity
 
