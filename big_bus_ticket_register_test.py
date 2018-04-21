@@ -163,4 +163,10 @@ class RegisterTest(unittest.TestCase):
         message = register._changeCapacity(0)
         self.assertEquals(message, "Capacity must be greater than 0")
 
+    def test_26_changeCapacity_With_String_Input(self):
+        register = bbtr.AppShell()
+        message = register._changeCapacity('92')
+        self.assertTrue(register.seller._maxes["red"] == 5*92 and register.seller._maxes["green"] == 4*92 and register.seller._maxes["blue"] == 2*92)        
+        self.assertEquals(message, "Capacity changed successfully")        
+
 unittest.main()
