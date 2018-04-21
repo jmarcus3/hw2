@@ -161,6 +161,6 @@ class RegisterTest(unittest.TestCase):
     def test_25_changeCapacity_Message_Failure_For_Bad_Number(self):
         register = bbtr.AppShell()
         message = register._changeCapacity(0)
-        self.assertEquals(message, "Capacity must be greater than 0!")
+        self.assertEquals(message, "Capacity must be greater than 0")
 
 unittest.main()
